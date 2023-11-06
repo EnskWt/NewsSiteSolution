@@ -1,0 +1,39 @@
+﻿@model ArticleResponse
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <div class="article-box">
+        <h1 class="text-left">@Model.Title</h1>
+        <p class="text-left">@Model.DatePublished.ToString("dd.MM.yyyy HH:mm"), Author: @Model.Author.UserName, Views: @Model.Views</p>
+        <hr />
+        <p>@Model.Body</p>
+        <hr />
+    </div>
+
+    <partial name="_CommentPartial" model="ViewBag.CommentAddRequest"></partial>
+
+    @foreach (CommentResponse comment in Model.Comments)
+    {
+        <div class="comment-box">
+            <p>@comment.DatePublished.ToString("dd.MM.yyyy HH:mm"), Author: @comment.Author.UserName</p>
+            <p>@comment.Body</p>
+            @if (User.Identity!.IsAuthenticated && User.Identity.Name == comment.Author.UserName)
+            {
+                <a asp-controller="Comments" asp-action="EditComment" asp-route-commentId="@comment.Id" class="button-link button-orange-back">Edit</a>
+                <a asp-controller="Comments" asp-action="DeleteComment" asp-route-id="@comment.Id" asp-route-returnArticle="@Model.Id" class="button-link button-red-back">Delete</a>
+            }
+        </div>
+    }
+</div>
+
+@section scripts
+    {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.4/jquery.validate.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}

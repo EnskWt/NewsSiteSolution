@@ -1,0 +1,15 @@
+﻿@model CommentAddRequest
+
+<div class="comment-box">
+    <form asp-controller="Comments" asp-action="AddComment" method="post">
+
+        <input type="hidden" asp-for="ArticleId" />
+
+        <label asp-for="Body" class="form-label pt">Write your comment</label>
+        <textarea asp-for="Body" class="form-input"></textarea>
+        <span asp-validation-for="Body" class="text-red"></span>
+
+        <button class="button button-green-back">Write comment</button>
+
+    </form>
+</div>

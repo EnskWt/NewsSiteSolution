@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ArticleResponse>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="container">
+
+    <div class="flex">
+        <div class="flex-1">
+            <a asp-area="Author" asp-controller="Articles" asp-action="CreateArticle" class="button-link button-green-back">Create article</a>
+        </div>
+    </div>
+
+    @foreach (var article in Model)
+    {
+        <div class="preview-article-box">
+            <h2>@article.Title</h2>
+            <p>@article.PreviewText</p>
+            <a asp-controller="Articles" asp-action="ArticleDetails" asp-route-id="@article.Id" class="button-link button-blue-back">Read article.</a>
+            <a asp-area="Author" asp-controller="Articles" asp-action="UpdateArticle" asp-route-id="@article.Id" class="button-link button-orange-back">Update article.</a>
+            <a asp-area ="Author" asp-controller="Articles" asp-action="DeleteArticle" asp-route-id="@article.Id" class="button-link button-red-back">Delete article.</a>
+        </div>
+    }
+</div>

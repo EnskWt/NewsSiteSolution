@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+        <link href="~/StyleSheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-content">
+
+                <div class="margin-bottom">
+                    <div class="flex" id="top-bar-div">
+                        <div class="flex-1" id="app-title-div">
+                            <a asp-area="" asp-controller="Articles" asp-action="Index" class="app-title text-blue">
+                                News Site
+                            </a>
+                        </div>
+
+                        <div class="navbar account-links">
+                            <ul>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    @if (User.IsInRole(UserRoles.Author.ToString()))
+                                    {
+                                        <li>
+                                            <a asp-area="Author" asp-controller="Articles" asp-action="Index" class="text-blue">For authors</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <a asp-area="" asp-controller="Account" asp-action="BecomeAuthor" class="text-blue">Become an author</a>
+                                        </li>
+                                    }
+                                }                            
+
+                                <li>
+                                    <a asp-area="" asp-controller="Articles" asp-action="Index" class="text-blue">Articles</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Home" asp-action="AboutUs" class="text-blue">About us</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="flex-1 pr" id="search-box-div">
+                            <div class="navbar account-links">
+
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <ul>
+                                        <li>
+                                            <a asp-area="" asp-controller="Account" asp-action="Profile" class="text-blue">@User.Identity.Name</a>
+                                            <a asp-area="" asp-controller="Account" asp-action="Logout" class="text-blue">Logout</a>
+                                        </li>
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <ul>
+                                        <li>
+                                            <a asp-area="" asp-controller="Account" asp-action="Register" class="text-blue">Register</a>
+                                            <a asp-area="" asp-controller="Account" asp-action="Login" class="text-blue">Login</a>
+                                        </li>
+                                    </ul>
+                                }
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="body">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

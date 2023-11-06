@@ -1,0 +1,44 @@
+﻿@model ArticleAddRequest
+
+@{
+    ViewBag.Title = "New article";
+}
+
+<div class="form-container">
+
+    <a asp-area="Author" asp-controller="Articles" asp-action="Index" class="link-hover">Back to articles</a>
+    <h2 class="text-large">Create article</h2>
+
+    <div class="article-box">
+
+        <form asp-area="Author" asp-controller="Articles" asp-action="CreateArticle" method="post">
+
+            <label asp-for="Title" class="form-label pt">Title</label>
+            <input asp-for="Title" class="form-input" />
+            <span asp-validation-for="Title" class="text-red"></span>
+
+            <hr />
+
+            <label asp-for="Body" class="form-label pt">Article</label>
+            <textarea asp-for="Body" class="form-input"></textarea>
+            <span asp-validation-for="Body" class="text-red"></span>
+
+            <hr />
+
+            <button class="button button-green-back">Create article</button>
+            <div asp-validation-summary="All" class="text-red"></div>
+
+        </form>
+
+    </div>
+</div>
+
+@section scripts
+    {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.4/jquery.validate.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}
+
