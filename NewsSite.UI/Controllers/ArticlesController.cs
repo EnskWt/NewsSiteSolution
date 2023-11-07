@@ -15,12 +15,9 @@ namespace NewsSite.UI.Controllers
     {
         private readonly IArticlesGetterService _articlesGetterService;
 
-        private readonly IArticlesCommentsGetterService _articlesCommentsGetterService;
-
-        public ArticlesController(IArticlesGetterService articlesGetterService, IArticlesCommentsGetterService articlesCommentsGetterService)
+        public ArticlesController(IArticlesGetterService articlesGetterService)
         {
             _articlesGetterService = articlesGetterService;
-            _articlesCommentsGetterService = articlesCommentsGetterService;
         }
 
         [HttpGet]

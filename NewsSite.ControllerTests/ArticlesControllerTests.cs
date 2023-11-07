@@ -21,20 +21,16 @@ namespace NewsSite.ControllerTests
         private readonly IFixture _fixture;
 
         private readonly IArticlesGetterService _articlesGetterService;
-        private readonly IArticlesCommentsGetterService _articlesCommentGetterService;
 
         private readonly Mock<IArticlesGetterService> _articlesGetterServiceMock;
-        private readonly Mock<IArticlesCommentsGetterService> _articlesCommentGetterServiceMock;
 
         public ArticlesControllerTests()
         {
             _fixture = new Fixture();
 
             _articlesGetterServiceMock = new Mock<IArticlesGetterService>();
-            _articlesCommentGetterServiceMock = new Mock<IArticlesCommentsGetterService>();
 
             _articlesGetterService = _articlesGetterServiceMock.Object;
-            _articlesCommentGetterService = _articlesCommentGetterServiceMock.Object;
         }
 
         #region Index
@@ -51,7 +47,7 @@ namespace NewsSite.ControllerTests
 
             _articlesGetterServiceMock.Setup(x => x.GetArticles(It.IsAny<SortAttributes>(), It.IsAny<int>())).ReturnsAsync(articles);
 
-            var controller = new ArticlesController(_articlesGetterService, _articlesCommentGetterService);
+            var controller = new ArticlesController(_articlesGetterService);
 
             // Act
 
@@ -76,7 +72,7 @@ namespace NewsSite.ControllerTests
 
             _articlesGetterServiceMock.Setup(x => x.GetArticle(It.IsAny<Guid>())).ReturnsAsync(null as ArticleResponse);
 
-            var controller = new ArticlesController(_articlesGetterService, _articlesCommentGetterService);
+            var controller = new ArticlesController(_articlesGetterService);
 
             // Act
 
@@ -101,7 +97,7 @@ namespace NewsSite.ControllerTests
 
             _articlesGetterServiceMock.Setup(x => x.GetArticle(It.IsAny<Guid>())).ReturnsAsync(article);
 
-            var controller = new ArticlesController(_articlesGetterService, _articlesCommentGetterService);
+            var controller = new ArticlesController(_articlesGetterService);
 
             // Act
 
