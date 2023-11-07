@@ -30,7 +30,7 @@ namespace NewsSite.UI.StartupExtensions
             services.AddScoped<IArticlesValidatorService, ArticlesValidatorService>();
             services.AddScoped<IArticlesAdderService, ArticlesAdderService>();
             services.AddScoped<IArticlesDeleterService, ArticlesDeleterService>();
-            services.AddScoped<IArticlesCommentGetterService, ArticlesGetterService>();
+            services.AddScoped<IArticlesGetterService, ArticlesGetterService>();
             services.AddScoped<IArticlesUpdaterService, ArticlesUpdaterService>();
 
             services.AddScoped<IArticlesCommentsValidatorService, ArticlesCommentsValidatorService>();

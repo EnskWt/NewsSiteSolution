@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace NewsSite.Core.Services.ArticlesServices
 {
-    public class ArticlesGetterService : IArticlesCommentGetterService
+    public class ArticlesGetterService : IArticlesGetterService
     {
         private IArticlesRepository _articlesRepository;
 

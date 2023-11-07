@@ -21,10 +21,10 @@ namespace NewsSite.UI.Areas.Author.Controllers
 
         private readonly IArticlesAdderService _articlesAdderService;
         private readonly IArticlesDeleterService _articlesDeleterService;
-        private readonly IArticlesCommentGetterService _articlesGetterService;
+        private readonly IArticlesGetterService _articlesGetterService;
         private readonly IArticlesUpdaterService _articlesUpdaterService;
 
-        public ArticlesController(UserManager<ApplicationUser> userManager, IArticlesValidatorService articlesValidatorService, IArticlesAdderService articlesAdderService, IArticlesDeleterService articlesDeleterService, IArticlesCommentGetterService articlesGetterService, IArticlesUpdaterService articlesUpdaterService)
+        public ArticlesController(UserManager<ApplicationUser> userManager, IArticlesValidatorService articlesValidatorService, IArticlesAdderService articlesAdderService, IArticlesDeleterService articlesDeleterService, IArticlesGetterService articlesGetterService, IArticlesUpdaterService articlesUpdaterService)
         {
             _userManager = userManager;
 

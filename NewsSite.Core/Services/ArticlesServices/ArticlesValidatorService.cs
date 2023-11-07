@@ -10,9 +10,9 @@ namespace NewsSite.Core.Services.ArticlesServices
 {
     public class ArticlesValidatorService : IArticlesValidatorService
     {
-        private IArticlesCommentGetterService _articlesGetterService;
+        private IArticlesGetterService _articlesGetterService;
 
-        public ArticlesValidatorService(IArticlesCommentGetterService articlesGetterService)
+        public ArticlesValidatorService(IArticlesGetterService articlesGetterService)
         {
             _articlesGetterService = articlesGetterService;
         }

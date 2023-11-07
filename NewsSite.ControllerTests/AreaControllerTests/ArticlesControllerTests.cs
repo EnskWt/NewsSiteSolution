@@ -21,7 +21,7 @@ namespace NewsSite.ControllerTests.AreaControllerTests
         private readonly IArticleExpressionsProvider _articleExpressionsProvider;
         private readonly IArticlesAdderService _articlesAdderService;
         private readonly IArticlesDeleterService _articlesDeleterService;
-        private readonly IArticlesCommentGetterService _articlesGetterService;
+        private readonly IArticlesGetterService _articlesGetterService;
         private readonly IArticlesUpdaterService _articlesUpdaterService;
 
         private readonly Mock<UserManager<ApplicationUser>> _userManagerMock;
@@ -30,7 +30,7 @@ namespace NewsSite.ControllerTests.AreaControllerTests
         private readonly Mock<IArticleExpressionsProvider> _articleExpressionsProviderMock;
         private readonly Mock<IArticlesAdderService> _articlesAdderServiceMock;
         private readonly Mock<IArticlesDeleterService> _articlesDeleterServiceMock;
-        private readonly Mock<IArticlesCommentGetterService> _articlesGetterServiceMock;
+        private readonly Mock<IArticlesGetterService> _articlesGetterServiceMock;
         private readonly Mock<IArticlesUpdaterService> _articlesUpdaterServiceMock;
 
         public ArticlesControllerTests()
@@ -43,7 +43,7 @@ namespace NewsSite.ControllerTests.AreaControllerTests
             _articleExpressionsProviderMock = new Mock<IArticleExpressionsProvider>();
             _articlesAdderServiceMock = new Mock<IArticlesAdderService>();
             _articlesDeleterServiceMock = new Mock<IArticlesDeleterService>();
-            _articlesGetterServiceMock = new Mock<IArticlesCommentGetterService>();
+            _articlesGetterServiceMock = new Mock<IArticlesGetterService>();
             _articlesUpdaterServiceMock = new Mock<IArticlesUpdaterService>();
 
             _userManager = _userManagerMock.Object;

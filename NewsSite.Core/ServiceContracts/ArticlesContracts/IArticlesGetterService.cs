@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NewsSite.Core.ServiceContracts.ArticlesContracts
 {
-    public interface IArticlesCommentGetterService
+    public interface IArticlesGetterService
     {
         /// <summary>
         /// Gets all articles from the database

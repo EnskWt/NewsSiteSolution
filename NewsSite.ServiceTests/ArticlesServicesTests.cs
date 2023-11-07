@@ -15,7 +15,7 @@ namespace NewsSite.ServiceTests
     {
         private readonly IArticlesAdderService _articlesAdderService;
         private readonly IArticlesDeleterService _articlesDeleterService;
-        private readonly IArticlesCommentGetterService _articlesGetterService;
+        private readonly IArticlesGetterService _articlesGetterService;
         private readonly IArticlesUpdaterService _articlesUpdaterService;
 
         private readonly Mock<IArticlesRepository> _articlesRepositoryMock;

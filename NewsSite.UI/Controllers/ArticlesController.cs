@@ -13,11 +13,11 @@ namespace NewsSite.UI.Controllers
     [AllowAnonymous]
     public class ArticlesController : Controller
     {
-        private readonly IArticlesCommentGetterService _articlesGetterService;
+        private readonly IArticlesGetterService _articlesGetterService;
 
         private readonly IArticlesCommentsGetterService _articlesCommentsGetterService;
 
-        public ArticlesController(IArticlesCommentGetterService articlesGetterService, IArticlesCommentsGetterService articlesCommentsGetterService)
+        public ArticlesController(IArticlesGetterService articlesGetterService, IArticlesCommentsGetterService articlesCommentsGetterService)
         {
             _articlesGetterService = articlesGetterService;
             _articlesCommentsGetterService = articlesCommentsGetterService;
